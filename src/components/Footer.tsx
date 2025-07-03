@@ -44,7 +44,7 @@ export default function Footer() {
           <>
             <h2 className="text-lg font-semibold mb-2">User Agreement</h2>
             <p className="whitespace-pre-line text-sm text-gray-700 leading-relaxed">
-  By using Tripplanners' website and services, you agree to comply with and be
+  By using Tripplanners&apos; website and services, you agree to comply with and be
   bound by the following terms and conditions. If you do not agree with any
   part of this agreement, you must not use our website.{"\n\n"}
 
@@ -67,6 +67,7 @@ export default function Footer() {
 
   Last updated: July 3, 2025
 </p>
+
 
           </>
         );
