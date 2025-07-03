@@ -25,13 +25,12 @@ export default function CorporateReviews() {
     <section className="bg-white px-4 py-16">
       <div className="mx-auto max-w-6xl text-center">
         <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
-          Corporate Reviews
+        🌟 What Our Travelers Say
         </h2>
         <p className="mx-auto mb-10 max-w-2xl text-sm text-gray-600 sm:text-base">
-          Our glowing reviews from corporate clients highlight exceptional
-          service, streamlined planning, and impactful travel
-          solutions—reflecting our dedication to delivering seamless and
-          professional travel experiences.
+        Our glowing traveler reviews reflect the unforgettable experiences,
+         personalized planning, and seamless execution we offer—showcasing our 
+         commitment to making every journey smooth, meaningful, and hassle-free
         </p>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">

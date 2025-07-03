@@ -1,57 +1,76 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+const travelSteps = [
+  {
+    title: "Let’s Dream Together ✨",
+    description:
+      "Tell us what kind of Vietnam you want to see—lanterns, beaches, mountains, or secret cafés!",
+    bg: "/travel/lanterns.jpg",
+  },
+  {
+    title: "We Build Your Story ✈️",
+    description:
+      "We curate destinations and hidden gems matching your vibe and budget.",
+    bg: "/travel/map.jpg",
+  },
+  {
+    title: "Custom Itinerary ☕",
+    description:
+      "From sunrise to street food, your days are designed for delight.",
+    bg: "/travel/itinerary.jpg",
+  },
+  {
+    title: "Everything Sorted 🏨",
+    description:
+      "Hotels, guides, transport, SIM cards—all handled, zero stress.",
+    bg: "/travel/hotel.jpg",
+  },
+  {
+    title: "Bon Voyage! 🌟",
+    description:
+      "You fly, we stay in touch. A local host awaits in Vietnam to help anytime!",
+    bg: "/travel/fly.jpg",
+  },
+];
+
 export default function StepsProcess() {
   return (
-    <section className="w-full bg-white px-4 py-16 text-center sm:px-10 md:px-20">
+    <section className="relative w-full bg-white px-6 py-16 text-center sm:px-10 md:px-20">
       <h2 className="pb-3 text-3xl font-bold sm:text-4xl md:text-5xl">
-        Planning something?
+        Planning Something Magical?
       </h2>
-      <p className="mb-6 text-xl font-light sm:text-2xl">
-        How We Can Help – Step by Step
-      </p>
-      <p className="mx-auto mb-12 max-w-3xl text-gray-700">
-        From planning to execution, we manage your off-sites, team outings and
-        in-office events for you, with you.
+      <p className="mb-12 text-lg text-gray-600 sm:text-xl">
+        Here’s how we turn your Vietnam dream into reality
       </p>
 
-      <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-4">
-        {steps.map((step, index) => (
-          <div key={index} className="relative flex flex-col items-center">
-            <div className="max-w-72 rounded-xl bg-gray-100 p-6 text-left shadow-sm md:min-h-72">
-              <h3 className="text-center text-lg font-bold sm:text-xl md:pb-2">
-                Step {index + 1}: {step.title}
-              </h3>
-              <p className="text-sm sm:text-base">{step.description}</p>
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {travelSteps.map((step, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
+            whileHover={{ scale: 1.03 }}
+            viewport={{ once: true }}
+            className="group relative overflow-hidden rounded-2xl shadow-lg"
+          >
+            <Image
+              src={step.bg}
+              alt={step.title}
+              width={500}
+              height={300}
+              className="h-60 w-full object-cover grayscale group-hover:grayscale-0 transition duration-500"
+            />
+            <div className="absolute inset-0 bg-black/30 backdrop-blur-sm flex flex-col justify-end p-6 text-left text-white">
+              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+              <p className="text-sm leading-relaxed">{step.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
   );
 }
-
-const steps = [
-  {
-    title: "Understanding Your Requirements",
-    description:
-      "We begin with a detailed consultation to understand your objectives, team size, budget, and specific needs for the offsite.",
-  },
-  {
-    title: "Curating Destinations & Venues",
-    description:
-      "Based on your brief, we suggest the best-suited locations and properties, both in India and abroad, aligned with your corporate goals.",
-  },
-  {
-    title: "Customizing the Itinerary",
-    description:
-      "We design a tailored schedule covering conferences, team-building, recreation, and evening events—balancing work, fun, and relaxation.",
-  },
-  {
-    title: "Handling All Logistics",
-    description:
-      "We manage end-to-end logistics including travel, accommodation, meals, AV setups, and on-ground coordination to ensure everything runs smoothly.",
-  },
-  {
-    title: "On-Site Support & Execution",
-    description:
-      "Our team is present on-site to oversee the execution, troubleshoot instantly, and ensure a seamless, stress-free experience for your team.",
-  },
-];

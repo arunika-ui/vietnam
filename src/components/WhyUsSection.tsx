@@ -5,21 +5,21 @@ import { useState, useEffect, useRef } from "react";
 const items = [
   {
     src: "/why-us/image1.jpg",
-    label: "Handpicked Resorts & Properties",
+    label: "🌴 Handpicked Stays Across Vietnam",
     content:
-      "We select premium resorts and venues that perfectly align with corporate requirements for comfort, privacy, and productivity.",
+      "We partner with the finest boutique resorts, beach villas, and scenic retreats—from Halong Bay to Hoi An—ensuring you experience Vietnam’s charm with maximum comfort and authenticity.      ",
   },
   {
     src: "/why-us/image2.jpg",
-    label: "Exclusive Hotel Partnerships",
+    label: "🧭 Personal Local Companion & Translator    ",
     content:
-      "Our exclusive contracting with hotels and resorts ensures the best deals, priority access, and added value for every booking.",
+      "To make your journey smooth and stress-free, we provide you with a friendly local guide who also serves as a translator—bridging the language gap and helping you navigate Vietnam like a pro.",
   },
   {
     src: "/why-us/image3.png",
-    label: "In-House Recreation Team",
+    label: "🎉 Curated Local Experiences",
     content:
-      "We have a dedicated in-house team to curate and execute engaging recreation and team-building activities, ensuring seamless delivery.",
+      "Our on-ground team brings Vietnam to life with immersive cultural activities, food trails, island excursions, and more—all tailored to your vibe, whether you're a couple, family, or squad.",
   },
 ];
 
