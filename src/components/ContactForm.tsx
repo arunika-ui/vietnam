@@ -1,124 +1,162 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import CaptchaBox from "./CaptchaBox";
-import { sendEmail } from "../../actions/email"; // adjust this path as needed
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { sendEmail } from "../../actions/email";
 
-export const ContactForm = ({ Bg }: { Bg: string }) => {
-  const [verified, setIsVerified] = useState(false);
+const citiesList = ["Hanoi", "Ho Chi Minh City", "Da Nang", "Ha Long Bay", "Hue"];
+
+export default function ItineraryForm() {
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+  const [startDate, endDate] = dateRange;
+  const [numPeople, setNumPeople] = useState(1);
+  const [budget, setBudget] = useState(30000);
+  const [selectedCity, setSelectedCity] = useState("");
   const [isPending, startTransition] = useTransition();
-  const [response, setResponse] = useState<{
-    error?: string;
-    data?: object;
-  } | null>(null);
+  const [response, setResponse] = useState<{ error?: string; data?: object } | null>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!verified) {
-      alert("Please complete the captcha to continue.");
-      return;
-    }
     const formData = new FormData(e.currentTarget);
+    formData.append("startDate", startDate?.toDateString() || "");
+    formData.append("endDate", endDate?.toDateString() || "");
+    formData.append("numPeople", numPeople.toString());
+    formData.append("budget", `${budget}`);
+    formData.append("city", selectedCity);
 
-    // Construct a single `message` field for the email
+    const interestLevel = localStorage.getItem("userInterest") || "Unknown";
+  formData.append("interestLevel", interestLevel);
+
     const message = `
-      Name: ${formData.get("name")}
-      Phone: ${formData.get("phone")}
-      Email: ${formData.get("senderEmail")}
-      Company: ${formData.get("company")}
-      Trip Type: ${formData.get("tripType")}
-      Message: ${formData.get("messageText")}
+Name: ${formData.get("name")}
+Email: ${formData.get("email")}
+Phone: ${formData.get("phone")}
+City: ${selectedCity}
+From: ${startDate?.toDateString()} To: ${endDate?.toDateString()}
+Number of People: ${numPeople}
+Approx Budget: ₹${budget}
+Interest Level: ${interestLevel}}
     `;
+
     formData.set("message", message);
 
     startTransition(() => {
-      sendEmail(formData).then((res) => {
-        setResponse(res);
-      });
+      sendEmail(formData).then((res) => setResponse(res));
     });
   };
 
-  const trips = [
-    "Offsite/Event Within",
-    "Outstation Offsite/Event",
-    "Team Leisure Trip",
-    "Team Outing",
-    "Team Building Session",
-  ];
-
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={`flex w-full max-w-md flex-col items-center p-6 text-lg md:p-8 ${
-        Bg === "transparent" ? "bg-white/80" : "bg-white"
-      } gap-4 rounded-lg outline-none`}
-    >
-      <input
-        name="name"
-        className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-red-500"
-        type="text"
-        placeholder="Your Name"
-      />
-      <input
-        name="phone"
-        className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-red-500"
-        type="text"
-        placeholder="Phone Number"
-      />
-      <input
-        name="senderEmail"
-        className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-red-500"
-        type="email"
-        placeholder="Work Email"
-      />
-      <input
-        name="company"
-        className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-red-500"
-        type="text"
-        placeholder="Company Name"
-      />
-      <InputForm trips={trips} />
-      <textarea
-        name="messageText"
-        className="h-24 w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-red-500"
-        placeholder="Write your message..."
-      />
-      <CaptchaBox setIsVerified={setIsVerified} />
+    <div className="w-full px-4 md:px-6 lg:px-8 flex justify-center">
+      <form
+    onSubmit={handleSubmit}
+    className="w-full max-w-lg p-6 space-y-5 bg-white rounded-lg shadow-md"
+  >
+
+      <h2 className="text-2xl font-bold text-gray-800">Plan Your Vietnam Trip</h2>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">Your Name</label>
+        <input
+          name="name"
+          type="text"
+          placeholder="John Doe"
+          className="input-style"
+          required
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">Email</label>
+        <input
+          name="email"
+          type="email"
+          placeholder="example@email.com"
+          className="input-style"
+          required
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">Phone</label>
+        <input
+          name="phone"
+          type="text"
+          placeholder="Your phone number"
+          className="input-style"
+          required
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">Preferred City</label>
+        <select
+          className="input-style"
+          value={selectedCity}
+          onChange={(e) => setSelectedCity(e.target.value)}
+          required
+        >
+          <option value="">Select a city</option>
+          {citiesList.map((city) => (
+            <option key={city} value={city}>
+              {city}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">Travel Dates</label>
+        <DatePicker
+          selectsRange
+          startDate={startDate}
+          endDate={endDate}
+          onChange={(update) => setDateRange(update as [Date | null, Date | null])}
+          className="input-style w-full"
+          placeholderText="Select travel dates"
+          isClearable
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">Number of People</label>
+        <input
+          type="number"
+          min="1"
+          value={numPeople}
+          onChange={(e) => setNumPeople(Number(e.target.value))}
+          className="input-style"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <label className="block text-sm font-medium text-gray-700">
+          Approximate Budget: ₹{budget}
+        </label>
+        <input
+          type="range"
+          min={10000}
+          max={200000}
+          step={1000}
+          value={budget}
+          onChange={(e) => setBudget(Number(e.target.value))}
+          className="w-full accent-red-500"
+        />
+      </div>
+
       <button
         type="submit"
         disabled={isPending}
-        className="w-full cursor-pointer rounded-md border border-[#E21D40] bg-[#E21D40] px-4 py-2 font-bold text-white transition-colors hover:bg-white hover:text-[#E21D40]"
+        className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
       >
-        {isPending ? "Sending..." : "Contact"}
+        {isPending ? "Sending..." : "Submit Itinerary"}
       </button>
-      <div className="w-full text-center text-sm text-gray-700">
-        By clicking the button, you agree to be bound by the terms of service of
-        this website
-      </div>
-      {response?.error && <p className="text-red-600">{response.error}</p>}
+
+      {response?.error && <p className="text-red-500">{response.error}</p>}
       {response?.data && (
-        <p className="text-green-600">Message sent successfully!</p>
+        <p className="text-green-600">Itinerary submitted successfully!</p>
       )}
     </form>
+    </div>
   );
-};
-
-const InputForm = ({ trips }: { trips: string[] }) => {
-  return (
-    <select
-      name="tripType"
-      defaultValue="SERVICES"
-      id="services"
-      className="w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-800 focus:outline-red-500"
-    >
-      <option disabled value="SERVICES">
-        Select Service Type
-      </option>
-      {trips.map((trip, key) => (
-        <option key={key} value={trip}>
-          {trip}
-        </option>
-      ))}
-    </select>
-  );
-};
+}

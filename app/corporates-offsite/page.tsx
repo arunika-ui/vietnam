@@ -1,5 +1,5 @@
 import ChoseUsSection from "@/components/WhyUsSection";
-import { ContactForm } from "@/components/ContactForm";
+import ItineraryForm  from "@/components/ContactForm";
 import ContactSection from "@/components/ContactSection";
 import { Decorator } from "@/components/Decorator";
 import Footer from "@/components/Footer";
@@ -35,7 +35,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-center justify-center">
-                <ContactForm Bg="transparent" />
+                < ItineraryForm Bg="transparent" />
               </div>
             </div>
           </div>

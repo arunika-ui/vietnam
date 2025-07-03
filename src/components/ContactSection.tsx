@@ -1,4 +1,4 @@
-import { ContactForm } from "./ContactForm";
+import  ItineraryForm  from "./ContactForm";
 
 export default function ContactSection() {
   return (
@@ -30,7 +30,7 @@ export default function ContactSection() {
 
         {/* Form */}
         <div className="flex w-full justify-center">
-          <ContactForm Bg="visible" />
+          <ItineraryForm Bg="visible" />
         </div>
       </div>
     </div>
