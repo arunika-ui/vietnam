@@ -25,17 +25,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 } */
 
-@keyframes plane-fly {
-  0% {
-    left: -100px;
-    top: 40%;
-  }
-  100% {
-    left: 100%;
-    top: 40%;
-  }
-}
-
-.animate-plane-fly {
-  animation: plane-fly 6s ease-in-out forwards;
-}

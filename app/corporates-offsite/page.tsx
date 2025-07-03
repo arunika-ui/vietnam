@@ -9,7 +9,7 @@ import BrandSection from "@/components/BrandSection";
 import BackgroundVideo from "@/components/BackgroundVideo";
 import CorporateReviews from "@/components/CorporateSection";
 import CelebrityReviews from "@/components/CelebritySection";
-import StepsProcess from "@/components/StepsProcess";
+import StepsProcess from "@/components/VietnamJournal";
 
 
 export default function Home() {
