@@ -27,7 +27,7 @@ export default function VietnamCard({
   const [showMore, setShowMore] = useState(false);
 
   return (
-    <div className="flex flex-col justify-between h-full w-full max-w-sm mx-auto rounded-lg border border-gray-200 bg-white shadow-md transition-transform duration-200 ease-out hover:scale-[1.02] overflow-hidden">
+    <div className="flex flex-col w-full max-w-sm mx-auto rounded-lg border border-gray-200 bg-white shadow-md transition-transform duration-200 ease-out hover:scale-[1.02] overflow-hidden">
       <Image
         src={ImageSrc}
         width={500}
@@ -36,7 +36,7 @@ export default function VietnamCard({
         className="h-60 w-full object-cover"
       />
 
-      <div className="flex flex-col justify-between p-5 h-full">
+      <div className="flex flex-col justify-between p-5">
         <h5 className="mb-3 text-xl font-bold tracking-tight text-gray-900 md:text-2xl">
           {Heading}
         </h5>
@@ -51,7 +51,7 @@ export default function VietnamCard({
           {/* Read More Section */}
           {showMore && (
             <div className="pt-2 text-gray-600">
-              <p className="whitespace-pre-line text-sm text-gray-700 mt-2">{More}</p>
+              <p className="whitespace-pre-line text-sm mt-2">{More}</p>
             </div>
           )}
         </div>
@@ -59,13 +59,10 @@ export default function VietnamCard({
         {/* Read More Button */}
         <button
           onClick={() => setShowMore(!showMore)}
-          className="mt-2 text-sm text-blue-600 hover:underline self-start"
+          className="mt-3 text-sm text-blue-600 hover:underline self-start"
         >
           {showMore ? '▲ Show less' : '▼ Read more'}
         </button>
-
-       
-        
       </div>
     </div>
   );

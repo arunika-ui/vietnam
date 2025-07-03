@@ -46,13 +46,17 @@ export default function Home() {
       <section className="relative w-full h-[60vh] overflow-hidden bg-black flex items-center justify-center">
   <video
     className="w-full h-full object-cover"
-    src="/videos/Untitled%20design.mp4" // Replace with actual path
+    src="/videos/Untitled%20design.mp4"
     autoPlay
     loop
     muted
     playsInline
   />
 </section>
+
+
+
+
 
       <StepsProcess />
       <ContactSection />
