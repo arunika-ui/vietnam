@@ -29,7 +29,7 @@ export const sendEmail = async (formData: FormData) => {
   try {
     const data = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>", // You must verify this if using a custom domain
-      to: "arunikajain22@gmail.com", // Owner's email
+      to: "tripplanners@gmail.com", // Owner's email
       subject: "Message from Vietnam Itinerary Form",
       replyTo: senderEmail as string,
       html: (message as string).replace(/\n/g, "<br/>"),
