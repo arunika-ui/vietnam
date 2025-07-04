@@ -4,19 +4,19 @@ import { useState, useEffect, useRef } from "react";
 // import { ContactForm } from "./ContactForm";
 const items = [
   {
-    src: "/why-us/image1.jpg",
+    src: "/why-us/hotel.jpg",
     label: "🌴 Handpicked Stays Across Vietnam",
     content:
       "We partner with the finest boutique resorts, beach villas, and scenic retreats—from Halong Bay to Hoi An—ensuring you experience Vietnam’s charm with maximum comfort and authenticity.      ",
   },
   {
-    src: "/why-us/image2.jpg",
+    src: "/why-us/trans.jpg",
     label: "🧭 Personal Local Companion & Translator    ",
     content:
       "To make your journey smooth and stress-free, we provide you with a friendly local guide who also serves as a translator—bridging the language gap and helping you navigate Vietnam like a pro.",
   },
   {
-    src: "/why-us/image3.png",
+    src: "/why-us/local.jpg",
     label: "🎉 Curated Local Experiences",
     content:
       "Our on-ground team brings Vietnam to life with immersive cultural activities, food trails, island excursions, and more—all tailored to your vibe, whether you're a couple, family, or squad.",

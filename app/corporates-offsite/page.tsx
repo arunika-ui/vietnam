@@ -43,9 +43,9 @@ export default function Home() {
       </div>
 
       <PlanningSection />
-      <section className="relative w-full h-[60vh] overflow-hidden bg-black flex items-center justify-center">
+      <section className="relative w-full aspect-video md:aspect-auto md:h-[90vh] bg-black overflow-hidden">
   <video
-    className="w-full h-full object-cover"
+    className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
     src="/videos/Untitled%20design.mp4"
     autoPlay
     loop
@@ -53,6 +53,9 @@ export default function Home() {
     playsInline
   />
 </section>
+
+
+
 
 
 
