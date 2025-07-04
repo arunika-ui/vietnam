@@ -35,7 +35,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-center justify-center">
-                < ItineraryForm Bg="transparent" />
+                < ItineraryForm />
               </div>
             </div>
           </div>

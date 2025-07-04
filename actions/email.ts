@@ -3,42 +3,42 @@
 import { Resend } from "resend";
 import { validateString, getErrorMessage } from "../utils";
 
+// Initialize Resend
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
-  const senderEmail = formData.get("senderEmail");
+  // Match field name from form: change to "email" if that’s what you're using
+  const senderEmail = formData.get("email"); // previously "senderEmail"
   const message = formData.get("message");
 
-  // simple server-side validation
+  // Log input for debugging
+  console.log("Received email:", senderEmail);
+  console.log("Message preview:", message?.toString().slice(0, 100));
+
+  // Validation
   if (!validateString(senderEmail, 500)) {
-    return {
-      error: "Invalid sender email",
-    };
-  }
-  if (!validateString(message, 5000)) {
-    return {
-      error: "Invalid message",
-    };
+    console.error("Invalid sender email");
+    return { error: "Invalid sender email" };
   }
 
-  let data;
+  if (!validateString(message, 5000)) {
+    console.error("Invalid message");
+    return { error: "Invalid message" };
+  }
+
   try {
-    data = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: "tripplanners@gmail.com",
-      subject: "Message from promos.tripplanners.co.in/corporates-offsite",
-      replyTo: senderEmail,
-      html: message,
+    const data = await resend.emails.send({
+      from: "Contact Form <onboarding@resend.dev>", // You must verify this if using a custom domain
+      to: "arunikajain22@gmail.com", // Owner's email
+      subject: "Message from Vietnam Itinerary Form",
+      replyTo: senderEmail as string,
+      html: (message as string).replace(/\n/g, "<br/>"),
     });
 
-    console.log("message sent");
+    console.log("✅ Email sent successfully:", data);
+    return { data };
   } catch (error: unknown) {
-    return {
-      error: getErrorMessage(error),
-    };
+    console.error("❌ Failed to send email:", error);
+    return { error: getErrorMessage(error) };
   }
-
-  return {
-    data,
-  };
 };

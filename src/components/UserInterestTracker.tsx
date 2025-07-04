@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 
 export default function UserInterestTracker() {
   const [interactions, setInteractions] = useState(0);
-  const [startTime, setStartTime] = useState(Date.now());
 
   useEffect(() => {
+    const startTime = Date.now();
+
     const handleInteraction = () => setInteractions((prev) => prev + 1);
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -20,7 +21,7 @@ export default function UserInterestTracker() {
     document.addEventListener("click", handleInteraction);
     document.addEventListener("scroll", handleScroll);
 
-    const interval = setInterval(() => {
+    const calculateInterest = () => {
       const timeSpent = (Date.now() - startTime) / 1000;
       let interest = "Low";
 
@@ -31,14 +32,17 @@ export default function UserInterestTracker() {
       }
 
       localStorage.setItem("userInterest", interest);
-    }, 5000);
+    };
+
+    // Calculate on unload just in case
+    window.addEventListener("beforeunload", calculateInterest);
 
     return () => {
-      clearInterval(interval);
       document.removeEventListener("click", handleInteraction);
       document.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("beforeunload", calculateInterest);
     };
-  }, [startTime]);
+  }, []);
 
   return null;
 }

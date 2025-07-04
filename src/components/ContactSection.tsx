@@ -30,7 +30,7 @@ export default function ContactSection() {
 
         {/* Form */}
         <div className="flex w-full justify-center">
-          <ItineraryForm Bg="visible" />
+          <ItineraryForm  />
         </div>
       </div>
     </div>

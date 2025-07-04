@@ -19,14 +19,15 @@ export default function ItineraryForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+    formData.append("senderEmail", formData.get("email") as string);
     formData.append("startDate", startDate?.toDateString() || "");
     formData.append("endDate", endDate?.toDateString() || "");
     formData.append("numPeople", numPeople.toString());
     formData.append("budget", `${budget}`);
     formData.append("city", selectedCity);
 
-    const interestLevel = localStorage.getItem("userInterest") || "Unknown";
-  formData.append("interestLevel", interestLevel);
+    const interestLevel = localStorage.getItem("userInterest") || "Low"; // Default to Low
+formData.append("interestLevel", interestLevel);
 
     const message = `
 Name: ${formData.get("name")}
