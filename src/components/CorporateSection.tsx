@@ -1,88 +1,65 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const celebrityVideos = [
+const testimonials = [
   {
-    thumbnail: "/thumbnails/feedback1.png",
-    videoUrl: "/videos/feedback1.mp4",
+    name: "Jaya Parkash V",
+    title: "Founder - iCube Creative Visualisation",
+    message:
+      "There was an urgent need to travel to my hometown. Approached Mr. Abhishek Jain from Trip Planners to book flight ticket. He promptly answered my call and instantly arranged my travel ticket in shorter period and saved money from buying an expensive ticket. I am so Grateful and Thankful to Mr. Abhishek for his extraordinary and honest service which saved our money and time. I hereby recommend him to all my contacts.",
   },
   {
-    thumbnail: "/thumbnails/feedback2.png",
-    videoUrl: "/videos/feedback2.mp4",
+    name: "Amit Kumar Shamihoke",
+    title: "Managing Partner - Nuvama Private",
+    message:
+      "A tester, or quality assurance (QA) tester, is responsible for evaluating software and systems to ensure they function correctly and meet required standards. Their role involves designing test cases, executing tests, and identifying defects or issues in the software.",
   },
   {
-    thumbnail: "/thumbnails/feedback3.png",
-    videoUrl: "/videos/feedback3.mp4",
+    name: "Amit Gupta",
+    title: "Owner - Kundan Lal Sons",
+    message:
+      "A sudden visit to Sharjah Jewellery show in UAE was planned by me with no Visa on my passport. I contacted Abhishek and he immediately not only started Visa proceedings but also gave me flight of my time preference and at better rates than any online platform All this was done in three working days, and it was an absolute hassle-free trip Abhishek's professionalism and timely acting on urgent situations will take him a long way I wish him all the very best in his profession and will keep referring him to my contact sphere",
   },
 ];
 
-export default function CorporateReviews() {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+export default function TestimonialSlider() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 2000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="bg-white px-4 py-16">
-      <div className="mx-auto max-w-6xl text-center">
-        <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
-        🌟 What Our Travelers Say
-        </h2>
-        <p className="mx-auto mb-10 max-w-2xl text-sm text-gray-600 sm:text-base">
-        Our glowing traveler reviews reflect the unforgettable experiences,
-         personalized planning, and seamless execution we offer—showcasing our 
-         commitment to making every journey smooth, meaningful, and hassle-free
-        </p>
+      <div className="mx-auto max-w-3xl text-center">
+        <h2 className="mb-6 text-3xl font-bold sm:text-4xl">🌟 Traveler Testimonials</h2>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {celebrityVideos.map((video, index) => (
-            <div
+        <div className="relative overflow-hidden rounded-lg border border-gray-200 p-6 shadow-md transition-all duration-500 min-h-[200px]">
+          <p className="text-gray-700 italic text-lg mb-4 transition-opacity duration-500 ease-in-out">
+            “{testimonials[current].message}”
+          </p>
+          <div className="text-sm text-gray-500">
+            — <strong>{testimonials[current].name}</strong>, {testimonials[current].title}
+          </div>
+        </div>
+
+        <div className="mt-6 flex justify-center gap-2">
+          {testimonials.map((_, index) => (
+            <button
               key={index}
-              className="group relative cursor-pointer overflow-hidden rounded-xl shadow-md transition-transform duration-200 ease-out hover:scale-105"
-              onClick={() => setActiveVideo(video.videoUrl)}
-            >
-              <Image
-                src={video.thumbnail}
-                alt={`Celebrity video ${index + 1}`}
-                width={500}
-                height={300}
-                className="h-auto max-h-[300px] w-full object-cover"
-              />
-              <div className="absolute right-3 bottom-3 transform rounded-full bg-red-500 p-2 text-white shadow-lg transition group-hover:scale-110">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
+              className={`h-2 w-2 rounded-full ${
+                index === current ? "bg-red-500" : "bg-gray-300"
+              }`}
+              onClick={() => setCurrent(index)}
+            ></button>
           ))}
         </div>
       </div>
-
-      {/* Modal */}
-      {activeVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
-          <div className="relative w-fit rounded-lg bg-white px-10 shadow-xl">
-            <button
-              className="absolute top-1 right-2 z-20 cursor-pointer text-2xl font-bold text-black hover:text-red-500"
-              onClick={() => setActiveVideo(null)}
-            >
-              &times;
-            </button>
-            <div className="aspect-w-16 aspect-h-9 w-full">
-              <video
-                className="h-96 w-full rounded-b-lg"
-                src={activeVideo}
-                controls
-                autoPlay
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

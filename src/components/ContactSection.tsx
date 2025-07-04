@@ -6,7 +6,7 @@ export default function ContactSection() {
       className="relative flex w-full items-center justify-center px-4 py-12 text-white"
       id="proposal"
       style={{
-        backgroundImage: "url(/gallery_collage.jpeg)",
+        backgroundImage: "url(/bg.png)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
