@@ -12,7 +12,7 @@ export default function ItineraryForm() {
   const [startDate, endDate] = dateRange;
   const [numPeople, setNumPeople] = useState(1);
   const [budget, setBudget] = useState(30000);
-  const [selectedCity, setSelectedCity] = useState("");
+  
   const [isPending, startTransition] = useTransition();
   const [response, setResponse] = useState<{ error?: string; data?: object } | null>(null);
 
@@ -24,7 +24,7 @@ export default function ItineraryForm() {
     formData.append("endDate", endDate?.toDateString() || "");
     formData.append("numPeople", numPeople.toString());
     formData.append("budget", `${budget}`);
-    formData.append("city", selectedCity);
+    
 
     const interestLevel = localStorage.getItem("userInterest") || "Low"; // Default to Low
 formData.append("interestLevel", interestLevel);
@@ -33,7 +33,7 @@ formData.append("interestLevel", interestLevel);
 Name: ${formData.get("name")}
 Email: ${formData.get("email")}
 Phone: ${formData.get("phone")}
-City: ${selectedCity}
+
 From: ${startDate?.toDateString()} To: ${endDate?.toDateString()}
 Number of People: ${numPeople}
 Approx Budget: ₹${budget}
@@ -89,22 +89,7 @@ Interest Level: ${interestLevel}}
         />
       </div>
 
-      <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-700">Preferred City</label>
-        <select
-          className="input-style"
-          value={selectedCity}
-          onChange={(e) => setSelectedCity(e.target.value)}
-          required
-        >
-          <option value="">Select a city</option>
-          {citiesList.map((city) => (
-            <option key={city} value={city}>
-              {city}
-            </option>
-          ))}
-        </select>
-      </div>
+      
 
       <div className="space-y-2">
         <label className="block text-sm font-medium text-gray-700">Travel Dates</label>
