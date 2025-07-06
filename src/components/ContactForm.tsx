@@ -5,8 +5,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { sendEmail } from "../../actions/email";
 
-const citiesList = ["Hanoi", "Ho Chi Minh City", "Da Nang", "Ha Long Bay", "Hue"];
-
 export default function ItineraryForm() {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
   const [startDate, endDate] = dateRange;
