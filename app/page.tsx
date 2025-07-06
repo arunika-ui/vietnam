@@ -6,7 +6,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/corporates-offsite");
+    router.push("/vietnam/corporates-offsite");
   }, [router]);
 
   return <div className="w-full" />;
