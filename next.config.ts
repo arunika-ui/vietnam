@@ -1,8 +1,5 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  basePath: "/vietnam",
-  output: "standalone", // optional but useful for production
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
