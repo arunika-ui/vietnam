@@ -1,17 +1,13 @@
 "use server";
 
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { validateString, getErrorMessage } from "../utils";
 
-// Initialize Resend
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export const sendEmail = async (formData: FormData) => {
-  // Match field name from form: change to "email" if that’s what you're using
-  const senderEmail = formData.get("email"); // previously "senderEmail"
+  const senderEmail = formData.get("email");
   const message = formData.get("message");
 
-  // Log input for debugging
+  // Log for debugging
   console.log("Received email:", senderEmail);
   console.log("Message preview:", message?.toString().slice(0, 100));
 
@@ -27,18 +23,29 @@ export const sendEmail = async (formData: FormData) => {
   }
 
   try {
-    const data = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>", // You must verify this if using a custom domain
-      to: "tripplanners@gmail.com", // Owner's email
+    const transporter = nodemailer.createTransport({
+      host: "smtp.resend.com",
+      port: 465,
+      secure: true, // Use TLS
+      auth: {
+        user: "resend",
+        pass: process.env.RESEND_API_KEY, // Must be defined in your `.env`
+      },
+    });
+
+    const mailOptions = {
+      from: "Contact Form <onboarding@resend.dev>", // still works without domain verification
+      to: "tripplanners@gmail.com",
       subject: "Message from Vietnam Itinerary Form",
       replyTo: senderEmail as string,
       html: (message as string).replace(/\n/g, "<br/>"),
-    });
+    };
 
-    console.log("✅ Email sent successfully:", data);
-    return { data };
-  } catch (error: unknown) {
-    console.error("❌ Failed to send email:", error);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent:", info.messageId);
+    return { success: true };
+  } catch (error: any) {
+    console.error("❌ SMTP error:", error);
     return { error: getErrorMessage(error) };
   }
 };
