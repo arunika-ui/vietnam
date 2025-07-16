@@ -20,33 +20,33 @@ export function ContactForm2() {
     data?: object;
   } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!isVerified) {
-      alert("Please complete the captcha to continue.");
-      return;
-    }
+ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  if (!isVerified) {
+    alert("Please complete the captcha to continue.");
+    return;
+  }
 
-    const formData = new FormData(e.currentTarget);
+  const formData = new FormData(e.currentTarget);
 
-    // Construct a single `message` field for the email
-    const message = `
-      What are you planning: ${formData.get("planning")}
-      Number of participants: ${formData.get("participants")}
-      Planned Date: ${formData.get("date")}
-      Company Name: ${formData.get("company")}
-      Your Name: ${formData.get("name")}
-      Department: ${formData.get("department")}
-      Email: ${formData.get("senderEmail")}
-      Phone: ${formData.get("phone")}
-    `;
+  const senderEmail = formData.get("senderEmail") as string;
 
-    formData.set("message", message);
+  const message = `
+    What are you planning: ${formData.get("planning")}
+    Number of participants: ${formData.get("participants")}
+    Planned Date: ${formData.get("date")}
+    Company Name: ${formData.get("company")}
+    Your Name: ${formData.get("name")}
+    Department: ${formData.get("department")}
+    Email: ${formData.get("senderEmail")}
+    Phone: ${formData.get("phone")}
+  `;
 
-    startTransition(() => {
-      sendEmail(formData).then((res) => setResponse(res));
-    });
-  };
+  startTransition(() => {
+    sendEmail({ senderEmail, message }).then((res) => setResponse(res));
+  });
+};
+
 
   return (
     <form
