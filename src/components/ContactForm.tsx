@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { sendEmail } from "../../actions/email";
+import { toast } from "react-toastify";
 
 export default function ItineraryForm() {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
@@ -43,12 +44,23 @@ This request was submitted via promos.tripplanners.co.in/vietnam.
 </p>
 `;
 
-   startTransition(() => {
+startTransition(() => {
   sendEmail({ senderEmail, phone, message, name })
-    .then(setResponse)
-    .catch((err) =>
-      setResponse({ error: [err.message || "Something went wrong."] })
-    );
+    .then((res) => {
+      if (res.error) {
+        if (Array.isArray(res.error)) {
+          res.error.forEach((err) => toast.error(err));
+        } else {
+          toast.error(res.error);
+        }
+      } else {
+        toast.success("Message sent successfully!");
+      }
+      setResponse(res);
+    })
+    .catch((err) => {
+      toast.error(err.message || "Something went wrong.");
+    });
 });
   };
 
