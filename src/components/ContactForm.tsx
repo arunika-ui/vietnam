@@ -61,7 +61,6 @@ This request was submitted via promos.tripplanners.co.in/vietnam.
           <input
             name="name"
             type="text"
-            placeholder="John Doe"
             className="input-style"
             required
           />
@@ -72,7 +71,6 @@ This request was submitted via promos.tripplanners.co.in/vietnam.
           <input
             name="email"
             type="email"
-            placeholder="example@email.com"
             className="input-style"
             required
           />
@@ -83,7 +81,6 @@ This request was submitted via promos.tripplanners.co.in/vietnam.
           <input
             name="phone"
             type="text"
-            placeholder="Your phone number"
             className="input-style"
             required
           />
@@ -97,7 +94,6 @@ This request was submitted via promos.tripplanners.co.in/vietnam.
             endDate={endDate}
             onChange={(update) => setDateRange(update as [Date | null, Date | null])}
             className="input-style w-full"
-            placeholderText="Select travel dates"
             isClearable
           />
         </div>
