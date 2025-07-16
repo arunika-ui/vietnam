@@ -5,7 +5,10 @@ export default function NavBar() {
     <div className="fixed top-0 left-0 z-30 h-[72px] w-full">
       <div className="flex h-full w-full items-center justify-between bg-white px-4 shadow-xl md:px-10">
         <div className="flex-shrink-0">
+          <div className="flex justify-center flex-col items-center text-sm text-red-500 gap-1 font-medium">
+          <div>Tripplanners</div>
           <Image src="/logo.svg" alt="logo" width={60} height={60} />
+        </div>
         </div>
 
         <div className="hidden items-center gap-6 *:cursor-pointer md:flex">

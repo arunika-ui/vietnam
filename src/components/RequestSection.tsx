@@ -2,7 +2,7 @@
 
 import CaptchaBox from "./CaptchaBox";
 import { useState, useTransition } from "react";
-import { sendEmail } from "../../actions/email"; // adjust path as needed
+import { sendEmail } from "../../actions/email"; 
 
 export default function RequestSection() {
   return (
@@ -16,37 +16,42 @@ export function ContactForm2() {
   const [isVerified, setIsVerified] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [response, setResponse] = useState<{
-    error?: string;
+    error?: string | string[];
     data?: object;
   } | null>(null);
 
- const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  if (!isVerified) {
-    alert("Please complete the captcha to continue.");
-    return;
-  }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!isVerified) {
+      alert("Please complete the captcha to continue.");
+      return;
+    }
 
-  const formData = new FormData(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
 
-  const senderEmail = formData.get("senderEmail") as string;
+    const senderEmail = (formData.get("senderEmail") as string) || "";
+    const phone = (formData.get("phone") as string) || "";
+    const name = (formData.get("name") as string) || "";
 
-  const message = `
-    What are you planning: ${formData.get("planning")}
-    Number of participants: ${formData.get("participants")}
-    Planned Date: ${formData.get("date")}
-    Company Name: ${formData.get("company")}
-    Your Name: ${formData.get("name")}
-    Department: ${formData.get("department")}
-    Email: ${formData.get("senderEmail")}
-    Phone: ${formData.get("phone")}
-  `;
+    const message = `
+      What are you planning: ${formData.get("planning")}
+      Number of participants: ${formData.get("participants")}
+      Planned Date: ${formData.get("date")}
+      Company Name: ${formData.get("company")}
+      Your Name: ${formData.get("name")}
+      Department: ${formData.get("department")}
+      Email: ${formData.get("senderEmail")}
+      Phone: ${formData.get("phone")}
+    `;
 
-  startTransition(() => {
-    sendEmail({ senderEmail, message }).then((res) => setResponse(res));
-  });
-};
-
+    startTransition(() => {
+      sendEmail({ senderEmail, phone, message, name })
+        .then(setResponse)
+        .catch((err) =>
+          setResponse({ error: [err.message || "Something went wrong."] })
+        );
+    });
+  };
 
   return (
     <form
@@ -112,7 +117,16 @@ export function ContactForm2() {
         {isPending ? "Submitting..." : "Submit"}
       </button>
 
-      {response?.error && <p className="text-red-600">{response.error}</p>}
+      {Array.isArray(response?.error) ? (
+        <div className="text-red-600 space-y-1">
+          {response.error.map((err, i) => (
+            <div key={i}>• {err}</div>
+          ))}
+        </div>
+      ) : response?.error ? (
+        <div className="text-red-600">{response.error}</div>
+      ) : null}
+
       {response?.data && (
         <p className="text-green-600">Message sent successfully!</p>
       )}
