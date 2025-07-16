@@ -12,10 +12,7 @@ export default function ItineraryForm() {
   const [numPeople, setNumPeople] = useState(1);
 
   const [isPending, startTransition] = useTransition();
-const [response, setResponse] = useState<{
-  error?: string[]; // 👈 string[]
-  data?: object;
-} | null>(null);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -44,19 +41,22 @@ This request was submitted via promos.tripplanners.co.in/vietnam.
 </p>
 `;
 
-startTransition(() => {
+    startTransition(() => {
   sendEmail({ senderEmail, phone, message, name })
     .then((res) => {
       if (res.error) {
         if (Array.isArray(res.error)) {
-          res.error.forEach((err) => toast.error(err));
+          // combine all errors into one string separated by newline or bullet points
+          const combinedErrors = res.error.map(err => `• ${err}`).join("\n");
+          toast.error(combinedErrors, {
+            style: { whiteSpace: "pre-line" } // allow \n line breaks
+          });
         } else {
           toast.error(res.error);
         }
       } else {
-        toast.success("Message sent successfully!");
+        toast.success("Query submitted successfully!");
       }
-      setResponse(res);
     })
     .catch((err) => {
       toast.error(err.message || "Something went wrong.");
@@ -132,19 +132,6 @@ startTransition(() => {
         >
           {isPending ? "Sending..." : "Submit Query"}
         </button>
-
-        {Array.isArray(response?.error) ? (
-  <div className="text-red-600 space-y-1">
-    {response.error.map((err, i) => (
-      <div key={i}>• {err}</div>
-    ))}
-  </div>
-) : response?.error ? (
-  <div className="text-red-600">{response.error}</div>
-) : null}
-        {response?.data && (
-          <p className="text-green-600">Itinerary submitted successfully!</p>
-        )}
       </form>
     </div>
   );
