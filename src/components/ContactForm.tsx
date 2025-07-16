@@ -130,7 +130,7 @@ startTransition(() => {
           disabled={isPending}
           className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
         >
-          {isPending ? "Sending..." : "Submit Itinerary"}
+          {isPending ? "Sending..." : "Submit Query"}
         </button>
 
         {Array.isArray(response?.error) ? (
