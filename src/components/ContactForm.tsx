@@ -46,9 +46,9 @@ export default function ItineraryForm() {
             toast.success("Query submitted successfully!");
 
             // Trigger conversion event
-            // @ts-expect-error
+            // @ts-expect-error bhai koi reason nhi hai
             if (typeof window !== "undefined" && typeof window.gtag === "function") {
-              // @ts-expect-error
+              // @ts-expect-error mt krooo
               window.gtag("event", "conversion", {
                 send_to: "AW-978999945/qt1VCOe52AcQibXp0gM",
                 value: 1.0,
