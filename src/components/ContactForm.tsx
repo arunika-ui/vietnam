@@ -93,14 +93,23 @@ This request was submitted via promos.tripplanners.co.in/vietnam.
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">Phone</label>
-          <input
-            name="phone"
-            type="text"
-            className="input-style"
-            required
-          />
-        </div>
+  <label className="block text-sm font-medium text-gray-700">Phone</label>
+  <input
+    name="phone"
+    type="tel"
+    pattern="\d{10}"
+    maxLength={10}
+    minLength={10}
+    inputMode="numeric"
+    required
+    className="input-style"
+    placeholder="Enter 10-digit phone number"
+    onInput={(e) => {
+      e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
+    }}
+  />
+</div>
+
 
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">Travel Dates</label>
