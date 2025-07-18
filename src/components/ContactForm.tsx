@@ -5,12 +5,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { sendEmail } from "../../actions/email";
 import { toast } from "react-toastify";
+import ThankYou from "./ThankYou";
 
 export default function ItineraryForm() {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
   const [startDate, endDate] = dateRange;
   const [numPeople, setNumPeople] = useState(1);
-
+  const [submitted, setSubmitted] = useState<boolean>(false);
   const [isPending, startTransition] = useTransition();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,92 +25,79 @@ export default function ItineraryForm() {
     const interestLevel = localStorage.getItem("userInterest") || "Low";
 
     const message = `
-<h2 style="font-family: Arial, sans-serif; color: #333;">New Vietnam Trip Inquiry</h2>
-<p style="font-size: 15px; color: #555;">
-<strong>Name:</strong> ${name}<br/>
-<strong>Email:</strong> ${senderEmail}<br/>
-<strong>Phone:</strong> ${phone}
-</p>
-<hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
-<p style="font-size: 15px; color: #555;">
-<strong>Travel Dates:</strong> ${startDate?.toDateString() || "Not specified"} to ${endDate?.toDateString() || "Not specified"}<br/>
-<strong>Number of People:</strong> ${numPeople}<br/>
-<strong>Interest Level:</strong> ${interestLevel}
-</p>
-<p style="font-size: 14px; color: #888;">
-This request was submitted via promos.tripplanners.co.in/vietnam.
-</p>
-`;
+      <h2>New Vietnam Trip Inquiry</h2>
+      <p><strong>Name:</strong> ${name}<br/>
+      <strong>Email:</strong> ${senderEmail}<br/>
+      <strong>Phone:</strong> ${phone}</p>
+      <p><strong>Travel Dates:</strong> ${startDate?.toDateString()} to ${endDate?.toDateString()}<br/>
+      <strong>People:</strong> ${numPeople}<br/>
+      <strong>Interest:</strong> ${interestLevel}</p>
+    `;
 
     startTransition(() => {
-  sendEmail({ senderEmail, phone, message, name })
-    .then((res) => {
-      if (res.error) {
-        if (Array.isArray(res.error)) {
-          // combine all errors into one string separated by newline or bullet points
-          const combinedErrors = res.error.map(err => `• ${err}`).join("\n");
-          toast.error(combinedErrors, {
-            style: { whiteSpace: "pre-line" } // allow \n line breaks
-          });
-        } else {
-          toast.error(res.error);
-        }
-      } else {
-        toast.success("Query submitted successfully!");
-      }
-    })
-    .catch((err) => {
-      toast.error(err.message || "Something went wrong.");
+      sendEmail({ senderEmail, phone, message, name })
+        .then((res) => {
+          if (res.error) {
+            const errorMsg = Array.isArray(res.error)
+              ? res.error.map((err) => `• ${err}`).join("\n")
+              : res.error;
+            toast.error(errorMsg, { style: { whiteSpace: "pre-line" } });
+          } else {
+            toast.success("Query submitted successfully!");
+
+            // Trigger conversion event
+            // @ts-ignore
+            if (typeof window !== "undefined" && typeof window.gtag === "function") {
+              // @ts-ignore
+              window.gtag("event", "conversion", {
+                send_to: "AW-978999945/qt1VCOe52AcQibXp0gM",
+                value: 1.0,
+                currency: "INR",
+              });
+            }
+            setSubmitted(true);
+          }
+        })
+        .catch((err) => toast.error(err.message || "Something went wrong."));
     });
-});
   };
 
   return (
-    <div className="w-full px-4 md:px-6 lg:px-8 flex justify-center">
+    <div className="w-full px-4 md:px-6 lg:px-8 flex justify-center relative">
+      {submitted && <ThankYou onClose={() => setSubmitted(false)} />}
+
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg p-6 space-y-5 bg-white rounded-lg shadow-md"
+        className="w-full max-w-lg p-6 space-y-5 bg-white rounded-lg shadow-lg z-10"
       >
         <h2 className="text-2xl font-bold text-gray-800">Plan Your Vietnam Trip</h2>
 
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">Your Name</label>
-          <input
-            name="name"
-            type="text"
-            className="input-style"
-            required
-          />
+          <input name="name" type="text" className="input-style" required />
         </div>
 
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">Email</label>
-          <input
-            name="email"
-            type="email"
-            className="input-style"
-            required
-          />
+          <input name="email" type="email" className="input-style" required />
         </div>
 
         <div className="space-y-2">
-  <label className="block text-sm font-medium text-gray-700">Phone</label>
-  <input
-    name="phone"
-    type="tel"
-    pattern="\d{10}"
-    maxLength={10}
-    minLength={10}
-    inputMode="numeric"
-    required
-    className="input-style"
-    placeholder="Enter 10-digit phone number"
-    onInput={(e) => {
-      e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
-    }}
-  />
-</div>
-
+          <label className="block text-sm font-medium text-gray-700">Phone</label>
+          <input
+            name="phone"
+            type="tel"
+            pattern="\d{10}"
+            maxLength={10}
+            inputMode="numeric"
+            required
+            className="input-style"
+            placeholder="10-digit number"
+            onInput={(e) => {
+              e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
+            }}
+          />
+        </div>
 
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">Travel Dates</label>
@@ -137,7 +125,7 @@ This request was submitted via promos.tripplanners.co.in/vietnam.
         <button
           type="submit"
           disabled={isPending}
-          className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
+          className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded transition duration-200"
         >
           {isPending ? "Sending..." : "Submit Query"}
         </button>
