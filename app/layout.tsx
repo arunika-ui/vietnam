@@ -3,6 +3,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -35,9 +36,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased ${poppins.variable}`}>{children}
-              <ToastContainer position="top-right" autoClose={4000} />
-
+      <head>
+        {/* Google Tag Manager Script */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-978999945"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-978999945');
+            `,
+          }}
+        />
+      </head>
+      <body className={`antialiased ${poppins.variable}`}>
+        {children}
+        <ToastContainer position="top-right" autoClose={4000} />
       </body>
     </html>
   );
