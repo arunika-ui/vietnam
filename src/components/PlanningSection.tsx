@@ -26,7 +26,7 @@ export default function PlanningSection() {
           duration="07 Nights / 08 Days"
           price="₹ 108,999/- Per Person"
           validity="30 SEPT 2025"
-          Inclusion="🚖 Transfers, 🏨 Hotels, 🍽️ Meals, 📸 Sightseeing"
+          Inclusion="✈️ Flights , 🚖 Transfers, 🏨 Hotels, 🍽️ Meals, 📸 Sightseeing"
           More={`✈️ Return Economy Class Airfare (Ex-Delhi)
       🏨 1N Hanoi + ⛴️ 1N Halong Bay Cruise
       🏖️ 3N Da Nang + 🌴 2N Phu Quoc
