@@ -12,24 +12,26 @@ export default function NavBar() {
         </div>
 
         <div className="flex items-center gap-6 *:cursor-pointer">
-          <a href={"tel:+919891000594"}>
+          <a href={"tel:+919811616005"}>
             <Image
               src="/navbar-logos/call.svg"
-              className="py-1 md:w-14 md:h-14 w-10 h-10"  // Responsive size for both mobile and desktop
+              className="py-1 w-10 h-10 md:w-14 md:h-14"  // Responsive size for phone icon
               width={60}
               height={60}
               alt="call logo"
             />
           </a>
-          <a href={"https://wa.me/919891000594"} target={"_blank"}>
+          <a href={"https://wa.me/919811616005"} target={"_blank"}>
             <Image
               src="/navbar-logos/whatsapp.svg"
-              className="py-1 md:w-14 md:h-14 w-10 h-10"  // Responsive size for both mobile and desktop
+              className="py-1 w-10 h-10 md:w-14 md:h-14"  // Responsive size for WhatsApp icon
               width={40}
               height={40}
               alt="whatsapp logo"
             />
           </a>
+
+          {/* Request a proposal button (for mobile view) */}
           <a
             href={"#proposal"}
             className="rounded-md border border-[#E21D40] bg-[#E21D40] px-4 py-2 font-bold text-white transition hover:bg-white hover:text-[#E21D40]"
@@ -38,6 +40,7 @@ export default function NavBar() {
           </a>
         </div>
 
+        {/* Mobile view - Show proposal button */}
         <div className="flex items-center gap-2 md:hidden">
           <a
             href={"#proposal"}
