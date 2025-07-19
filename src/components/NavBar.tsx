@@ -11,20 +11,20 @@ export default function NavBar() {
         </div>
         </div>
 
-        <div className="hidden items-center gap-6 *:cursor-pointer md:flex">
-          <a href={"tel:+919811616005"}>
+        <div className="flex items-center gap-6 *:cursor-pointer">
+          <a href={"tel:+919891000594"}>
             <Image
               src="/navbar-logos/call.svg"
-              className="py-1"
+              className="py-1 md:w-14 md:h-14 w-10 h-10"  // Responsive size for both mobile and desktop
               width={60}
               height={60}
               alt="call logo"
             />
           </a>
-          <a href={"https://wa.me/919811616005"} target={"_blank"}>
+          <a href={"https://wa.me/919891000594"} target={"_blank"}>
             <Image
               src="/navbar-logos/whatsapp.svg"
-              className="py-1"
+              className="py-1 md:w-14 md:h-14 w-10 h-10"  // Responsive size for both mobile and desktop
               width={40}
               height={40}
               alt="whatsapp logo"
