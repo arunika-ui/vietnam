@@ -14,7 +14,8 @@ const testimonials = [
     title: "Dentist - Smileworks",
     message:
       "Testimonial from my Father Dr Anoop Bhushan in his exact words At the outset I am so thankful to Mr. Abhishek Jain for helping us in booking our International Air tickets. We both, me and my wife sincerely appreciate the time you spent in finding out the best Airline and the best route for our travel to Ireland and back. Your recommendation was the best one for us. Your time to time advice was also very helpful and gave me enough clarity on available options to travel. I especially appreciate your connect with me and message me before every flight which was of great help and guidance. This gave us a lot of comfort. Again, thank you so much for your help. I greatly appreciate the assistance you have provided me. Toh baat saaf hai. Ghumi Ghumi Jaana hai toh, Trip Planners ko hi call karna hai.",
-  {
+  },
+    {
     name: "Amit Gupta",
     title: "Owner - Kundan Lal Sons",
     message:
