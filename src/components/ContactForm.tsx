@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { sendEmail } from "../../actions/email";
 import { toast } from "react-toastify";
-import ThankYou from "./ThankYou";
+import { useRouter } from "next/navigation";
 
 export default function ItineraryForm() {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
@@ -13,6 +13,7 @@ export default function ItineraryForm() {
   const [numPeople, setNumPeople] = useState(1);
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,18 +45,9 @@ export default function ItineraryForm() {
             toast.error(errorMsg, { style: { whiteSpace: "pre-line" } });
           } else {
             toast.success("Query submitted successfully!");
-
-            // Trigger conversion event
-            // @ts-expect-error bhai koi reason nhi hai
-            if (typeof window !== "undefined" && typeof window.gtag === "function") {
-              // @ts-expect-error mt krooo
-              window.gtag("event", "conversion", {
-                send_to: "AW-978999945/qt1VCOe52AcQibXp0gM",
-                value: 1.0,
-                currency: "INR",
-              });
-            }
+            
             setSubmitted(true);
+            router.push("/thankyou");
           }
         })
         .catch((err) => toast.error(err.message || "Something went wrong."));
@@ -64,7 +56,6 @@ export default function ItineraryForm() {
 
   return (
     <div className="w-full px-4 md:px-6 lg:px-8 flex justify-center relative">
-      {submitted && <ThankYou onClose={() => setSubmitted(false)} />}
 
       <form
         onSubmit={handleSubmit}
