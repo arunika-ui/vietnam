@@ -11,7 +11,7 @@ export default function NavBar() {
         </div>
 
         {/* Right Side: Actions */}
-        <div className="flex items-center gap-3 md:gap-5">
+        <div className="flex items-center gap-1 md:gap-5">
           {/* Call Icon */}
           <a href="tel:+919811616005">
             <Image
@@ -41,9 +41,9 @@ export default function NavBar() {
           {/* Request Button (Only one, responsive design handles sizing) */}
           <a
             href="#proposal"
-            className="rounded-md bg-[#E21D40] px-3 py-2 text-sm font-semibold text-white transition hover:border hover:border-[#E21D40] hover:bg-white hover:text-[#E21D40] md:px-4 md:py-2 md:text-base md:font-bold"
+            className="rounded-md w-fit bg-[#E21D40] px-2 py-2 text-xs font-semibold text-white transition hover:border hover:border-[#E21D40] hover:bg-white hover:text-[#E21D40] md:px-4 md:py-2 md:text-base md:font-bold"
           >
-            Request a proposal
+            Request proposal
           </a>
         </div>
       </div>
