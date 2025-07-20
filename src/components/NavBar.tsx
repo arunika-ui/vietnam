@@ -10,44 +10,40 @@ export default function NavBar() {
           <span className="text-sm font-medium text-red-500">Tripplanners</span>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-4">
+        {/* Right Side: Actions */}
+        <div className="flex items-center gap-3 md:gap-5">
           {/* Call Icon */}
           <a href="tel:+919811616005">
             <Image
               src="/navbar-logos/call.svg"
               alt="call logo"
-              width={28}
-              height={28}
-              className="md:w-[40px] md:h-[40px]"
+              width={38}
+              height={38}
+              className="md:w-[46px] md:h-[46px]"
             />
           </a>
 
           {/* WhatsApp Icon */}
-          <a href="https://wa.me/919811616005" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://wa.me/919891000594"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               src="/navbar-logos/whatsapp.svg"
               alt="whatsapp logo"
               width={28}
               height={28}
-              className="w-24px md:w-[36px] md:h-[36px]"
+              className="md:w-[36px] md:h-[36px]"
             />
           </a>
 
-          {/* Desktop Button */}
+          {/* Request Button (Only one, responsive design handles sizing) */}
           <a
             href="#proposal"
-            className="hidden md:inline-block rounded-md border border-[#E21D40] bg-[#E21D40] px-4 py-2 font-bold text-white transition hover:bg-white hover:text-[#E21D40]"
+            className="rounded-md bg-[#E21D40] px-3 py-2 text-sm font-semibold text-white transition hover:border hover:border-[#E21D40] hover:bg-white hover:text-[#E21D40] md:px-4 md:py-2 md:text-base md:font-bold"
           >
             Request a proposal
-          </a>
-
-          {/* Mobile Button */}
-          <a
-            href="#proposal"
-            className="inline-block md:hidden rounded-md bg-[#E21D40] px-3 py-2 text-sm font-semibold text-white transition hover:border hover:border-[#E21D40] hover:bg-white hover:text-[#E21D40]"
-          >
-            Proposal
           </a>
         </div>
       </div>
