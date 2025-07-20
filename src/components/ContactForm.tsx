@@ -11,7 +11,6 @@ export default function ItineraryForm() {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
   const [startDate, endDate] = dateRange;
   const [numPeople, setNumPeople] = useState(1);
-  const [submitted, setSubmitted] = useState<boolean>(false);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
@@ -46,7 +45,6 @@ export default function ItineraryForm() {
           } else {
             toast.success("Query submitted successfully!");
             
-            setSubmitted(true);
             router.push("/thankyou");
           }
         })
