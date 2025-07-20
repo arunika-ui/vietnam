@@ -10,11 +10,10 @@ const testimonials = [
       "There was an urgent need to travel to my hometown. Approached Mr. Abhishek Jain from Trip Planners to book flight ticket. He promptly answered my call and instantly arranged my travel ticket in shorter period and saved money from buying an expensive ticket. I am so Grateful and Thankful to Mr. Abhishek for his extraordinary and honest service which saved our money and time. I hereby recommend him to all my contacts.",
   },
   {
-    name: "Amit Kumar Shamihoke",
-    title: "Managing Partner - Nuvama Private",
+    name: "Akshay Bhushan",
+    title: "Dentist - Smileworks",
     message:
-      "A tester, or quality assurance (QA) tester, is responsible for evaluating software and systems to ensure they function correctly and meet required standards. Their role involves designing test cases, executing tests, and identifying defects or issues in the software.",
-  },
+      "Testimonial from my Father Dr Anoop Bhushan in his exact words At the outset I am so thankful to Mr. Abhishek Jain for helping us in booking our International Air tickets. We both, me and my wife sincerely appreciate the time you spent in finding out the best Airline and the best route for our travel to Ireland and back. Your recommendation was the best one for us. Your time to time advice was also very helpful and gave me enough clarity on available options to travel. I especially appreciate your connect with me and message me before every flight which was of great help and guidance. This gave us a lot of comfort. Again, thank you so much for your help. I greatly appreciate the assistance you have provided me. Toh baat saaf hai. Ghumi Ghumi Jaana hai toh, Trip Planners ko hi call karna hai.",
   {
     name: "Amit Gupta",
     title: "Owner - Kundan Lal Sons",
