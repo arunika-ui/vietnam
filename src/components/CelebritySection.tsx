@@ -12,7 +12,7 @@ const celebrityVideos = [
   },
   {
     thumbnail: "/thumbnails/thumbnail2.png",
-    videoUrl: "https://mohit-hingorani.tech/tripplanners/video2.mov",
+    videoUrl: ""/videos/vid1-3.mp4",
     name: "Aishwarya & Neil",
     role: "Actors & Big Boss Contestants",
   },
