@@ -30,7 +30,7 @@ export default function ThankYouPage() {
           Our team will get back to you soon.
         </p>
         <button
-          className="mt-4 cursor-pointer rounded-md bg-blue-400 px-4 py-2 text-white shadow-md hover:scale-95"
+          className="mt-4 cursor-pointer rounded-md bg-red-500 px-4 py-2 text-white shadow-md hover:scale-95"
           onClick={() => {
             router.push("/");
           }}
