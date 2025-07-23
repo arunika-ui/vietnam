@@ -25,8 +25,8 @@ export default function Home() {
             <Image
               className="relative w-[50px] md:w-20"
               src="/whatsapp.svg"
-              width={80}
-              height={80}
+              width={70}
+              height={70}
               alt="whatsapp"
             />
           </a>
