@@ -12,9 +12,9 @@ export default function WhatsAppButton() {
       <Image
         src="/whatsapp-logo.avif"
         alt="WhatsApp"
-        width={30}
-        height={30}
-        className="w-[300px] h-[300px]"
+        width={60}
+        height={60}
+        className="w-[30px] h-[30px]"
       />
     </a>
   );
