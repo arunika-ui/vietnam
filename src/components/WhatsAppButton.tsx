@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
       className="fixed bottom-5 right-5 z-50 bg-green-500 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
     >
       <Image
-        src="/navbar-logos/whatsapp.svg" // adjust to your file path
+        src="/public/whatsapp-logo.avif" // adjust to your file path
         alt="WhatsApp"
         width={50}
         height={50}
