@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
         alt="WhatsApp"
         width={30}
         height={30}
-        className="w-[30px] h-[30px]"
+        className="w-[300px] h-[300px]"
       />
     </a>
   );
