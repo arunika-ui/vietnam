@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="w-full">
       <div className="relative min-h-screen w-full overflow-hidden">
-        <div className="fixed right-15 bottom-15 z-50">
+        {/* <div className="fixed right-15 bottom-15 z-50">
           <a
             href="https://wa.me/919891000594?text=Hi%20there!%20I'm%20interested%20in%20a%20Vietnam%20tour%20package.%20Can%20you%20help%20me%20with%20the%20details?"
             target="_blank"
@@ -30,7 +30,7 @@ export default function Home() {
               alt="whatsapp"
             />
           </a>
-        </div>
+        </div> */}
         <BackgroundVideo />
 
         <div className="flex flex-col">
