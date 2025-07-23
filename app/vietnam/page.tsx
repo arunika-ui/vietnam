@@ -10,7 +10,7 @@ import BackgroundVideo from "@/components/BackgroundVideo";
 import CorporateReviews from "@/components/CorporateSection";
 import CelebrityReviews from "@/components/CelebritySection";
 import StepsProcess from "@/components/VietnamJournal";
-
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -75,6 +75,7 @@ export default function Home() {
       <BrandSection />
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
