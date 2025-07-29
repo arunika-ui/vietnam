@@ -23,7 +23,7 @@ export default function PlanningSection() {
         <VietnamCard
           key="Budget Vietnam Experience"
           Heading="Budget Vietnam Experience"
-          ImageSrc="/itenary3.jpg"
+          ImageSrc="/19vietnam1.webp"
           cities="HANOI - HALONG - DANANG - Phu Quoc"
           duration="08 Days"
           price="₹66,999/- Per Person"
@@ -47,7 +47,7 @@ export default function PlanningSection() {
         <VietnamCard
           key="Affordable Vietnam Discovery"
           Heading="Affordable Vietnam Discovery"
-          ImageSrc="/itenary2.jpg"
+          ImageSrc="/19vietnam2.webp"
           cities="HANOI - HALONG - DANANG - HO CHI MINH"
           duration="08 Days"
           price="₹55,999/- Per Person"
@@ -71,7 +71,7 @@ export default function PlanningSection() {
         <VietnamCard
           key="Vietnam Essentials"
           Heading="Vietnam Essentials"
-          ImageSrc="/iternary1.jpg"
+          ImageSrc="/19vietnam3.jpg"
           cities="HANOI - HALONG - DANANG"
           duration="06 Days"
           price="₹51,999/- Per Person"
