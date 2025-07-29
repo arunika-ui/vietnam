@@ -8,8 +8,9 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
 export default function ItineraryForm() {
-  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
-  const [startDate, endDate] = dateRange;
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  // const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+  // const [startDate, endDate] = dateRange;
   const [numPeople, setNumPeople] = useState(1);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function ItineraryForm() {
       <p><strong>Name:</strong> ${name}<br/>
       <strong>Email:</strong> ${senderEmail}<br/>
       <strong>Phone:</strong> ${phone}</p>
-      <p><strong>Travel Dates:</strong> ${startDate?.toDateString()} to ${endDate?.toDateString()}<br/>
+      <p><strong>Travel Date:</strong> ${selectedDate?.toDateString()}<br/>
       <strong>People:</strong> ${numPeople}<br/>
       <strong>Interest:</strong> ${interestLevel}</p>
     `;
@@ -90,14 +91,21 @@ export default function ItineraryForm() {
 
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">Travel Dates</label>
-          <DatePicker
+          {/* <DatePicker
             selectsRange
             startDate={startDate}
             endDate={endDate}
             onChange={(update) => setDateRange(update as [Date | null, Date | null])}
             className="input-style w-full"
             isClearable
-          />
+          /> */}
+          <DatePicker
+      selected={selectedDate}
+      onChange={(date) => setSelectedDate(date)}
+      className="input-style w-full"
+      isClearable
+      placeholderText="Select a date"
+    />
         </div>
 
         <div className="space-y-2">

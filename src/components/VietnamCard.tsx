@@ -26,6 +26,20 @@ export default function VietnamCard({
 }: VietnamCardProps) {
   const [showMore, setShowMore] = useState(false);
 
+  const formatMore = (text: string | undefined) => {
+    if (!text) return null;
+    return (
+      <div className="text-sm leading-relaxed space-y-2 whitespace-pre-line bg-gray-50 p-4 rounded-md border border-gray-200 mt-2">
+        {text.split('\n').map((line, index) => (
+          <div key={index} className="flex items-start gap-2">
+            <span className="text-red-500">•</span>
+            <span>{line}</span>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className="w-full max-w-sm mx-auto rounded-lg border border-gray-200 bg-white shadow-md overflow-hidden transition-transform duration-200 hover:scale-[1.02] flex flex-col">
       {/* Image */}
@@ -50,11 +64,7 @@ export default function VietnamCard({
           <p><strong>Validity:</strong> {validity}</p>
           <p><strong>Inclusion:</strong> {Inclusion}</p>
 
-          {showMore && (
-            <div className="pt-2">
-                {More}
-            </div>
-          )}
+          {showMore && formatMore(More)}
         </div>
 
         {/* Buttons */}
