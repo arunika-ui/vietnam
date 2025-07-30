@@ -90,7 +90,7 @@ export default function ItineraryForm() {
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">Travel Dates</label>
+          <label className="block text-sm font-medium text-gray-700">Travel Date</label>
           {/* <DatePicker
             selectsRange
             startDate={startDate}

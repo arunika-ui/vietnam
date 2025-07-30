@@ -32,7 +32,7 @@ const testimonialData = [
   {
     name: "Arya Mahajan",
     designation: "Owner - I Village",
-    body: "I wanted to travel to Mumbai for the festivities and took support from Abhishek Jain. He was really quick and prompt, and got me a very good price on my preferred travel dates. It took only 10 mins of my actual time. I was truly surprised when he sent me my boarding pass over phone 2 days before departure without me even asking. Thank you Abhishek for this luxury feeling—such convenience really means a lot for a working mom going on a holiday after a hectic office schedule.",
+    body: "I wanted to travel to Mumbai for the festivities and took support from Abhishek Jain. He was really quick and prompt, and got me a very good price on my preferred travel date. It took only 10 mins of my actual time. I was truly surprised when he sent me my boarding pass over phone 2 days before departure without me even asking. Thank you Abhishek for this luxury feeling—such convenience really means a lot for a working mom going on a holiday after a hectic office schedule.",
   },
   {
     name: "Ankush Duggal",
