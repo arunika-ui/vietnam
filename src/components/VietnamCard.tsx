@@ -26,6 +26,9 @@ export default function VietnamCard({
 }: VietnamCardProps) {
   const [showMore, setShowMore] = useState(false);
 
+  // Check if flights are included
+  const includesFlight = Inclusion.includes('✈️');
+
   const formatMore = (text: string | undefined) => {
     if (!text) return null;
     return (
@@ -41,7 +44,14 @@ export default function VietnamCard({
   };
 
   return (
-    <div className="w-full max-w-sm mx-auto rounded-lg border border-gray-200 bg-white shadow-md overflow-hidden transition-transform duration-200 hover:scale-[1.02] flex flex-col">
+    <div className="relative w-full max-w-sm mx-auto rounded-lg border border-gray-200 bg-white shadow-md overflow-hidden transition-transform duration-200 hover:scale-[1.02] flex flex-col">
+      {/* Ribbon */}
+      {includesFlight && (
+        <div className="absolute top-2 left-2 bg-[#E21D40] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
+          FLIGHTS INCLUDED
+        </div>
+      )}
+
       {/* Image */}
       <div className="relative w-full h-60">
         <Image
