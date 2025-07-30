@@ -28,7 +28,7 @@ export default function PlanningSection() {
           duration="06 Days"
           price="₹51,999/- Per Person"
           validity="30 SEPT 2025"
-          Inclusion="✈️ Flights, 🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
+          Inclusion="🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
           More={`🏨 01 Nights Stay in Hanoi
 ⛴️ 01 Nights Stay in Cruise at Halong Bay
 🏨 03 Nights Stay in DaNang
@@ -51,7 +51,7 @@ export default function PlanningSection() {
           duration="08 Days"
           price="₹55,999/- Per Person"
           validity="30 SEPT 2025"
-          Inclusion="✈️ Flights, 🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
+          Inclusion="🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
           More={`🏨 01 Nights Stay in Hanoi
 ⛴️ 01 Nights Stay in Cruise at Halong Bay
 🏨 03 Nights Stay in DaNang
@@ -75,7 +75,7 @@ export default function PlanningSection() {
           duration="08 Days"
           price="₹66,999/- Per Person"
           validity="30 SEPT 2025"
-          Inclusion="✈️ Flights, 🚖 Transfers, 🏨 Hotels, 🍽️ Meals, 📸 Sightseeing"
+          Inclusion="🚖 Transfers, 🏨 Hotels, 🍽️ Meals, 📸 Sightseeing"
           More={`🏨 01 Nights Stay in Hanoi
 ⛴️ 01 Nights Stay in Cruise at Halong Bay
 🏨 03 Nights Stay in DaNang
