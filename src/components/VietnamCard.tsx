@@ -9,7 +9,6 @@ interface VietnamCardProps {
   cities: string;
   duration: string;
   price: string;
-  validity: string;
   Inclusion: string;
   More: string;
 }
@@ -20,7 +19,6 @@ export default function VietnamCard({
   cities,
   duration,
   price,
-  validity,
   Inclusion,
   More,
 }: VietnamCardProps) {
@@ -71,7 +69,6 @@ export default function VietnamCard({
           <p><strong>Cities Covered:</strong> {cities}</p>
           <p><strong>Duration:</strong> {duration}</p>
           <p><strong>Starting From:</strong> <span className="text-red-500 font-semibold">{price}</span></p>
-          <p><strong>Validity:</strong> {validity}</p>
           <p><strong>Inclusion:</strong> {Inclusion}</p>
 
           {showMore && formatMore(More)}

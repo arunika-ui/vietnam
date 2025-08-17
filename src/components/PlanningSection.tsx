@@ -27,7 +27,7 @@ export default function PlanningSection() {
           cities="HANOI - HALONG - DANANG"
           duration="06 Days"
           price="₹51,999/- Per Person"
-          validity="30 SEPT 2025"
+          
           Inclusion="🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
           More={`🏨 01 Nights Stay in Hanoi
 ⛴️ 01 Nights Stay in Cruise at Halong Bay
@@ -50,7 +50,7 @@ export default function PlanningSection() {
           cities="HANOI - HALONG - DANANG - HO CHI MINH"
           duration="08 Days"
           price="₹55,999/- Per Person"
-          validity="30 SEPT 2025"
+          
           Inclusion="🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
           More={`🏨 01 Nights Stay in Hanoi
 ⛴️ 01 Nights Stay in Cruise at Halong Bay
@@ -74,7 +74,7 @@ export default function PlanningSection() {
           cities="HANOI - HALONG - DANANG - Phu Quoc"
           duration="08 Days"
           price="₹66,999/- Per Person"
-          validity="30 SEPT 2025"
+          
           Inclusion="🚖 Transfers, 🏨 Hotels, 🍽️ Meals, 📸 Sightseeing"
           More={`🏨 01 Nights Stay in Hanoi
 ⛴️ 01 Nights Stay in Cruise at Halong Bay
@@ -98,7 +98,7 @@ export default function PlanningSection() {
           cities="Hanoi, Halong Bay Cruise & Da Nang"
           duration="06 Days / 05 Nights"
           price="₹84,999 PP"
-          validity="30 SEPT 2025"
+          
           Inclusion="✈️ Flights, 🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
           More={`✈️ Return Economy Class Airfare (Ex-Delhi)
 🏨 1N Hanoi + ⛴️ 1N Halong Bay Cruise
@@ -120,7 +120,7 @@ export default function PlanningSection() {
           cities="Hanoi, Halong Bay Cruise, Danang & Ho Chi Minh"
           duration="08 Days / 07 Nights"
           price="₹96,999 PP"
-          validity="30 SEPT 2025"
+          
           Inclusion="✈️ Flights, 🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
           More={`✈️ Return Economy Class Airfare (Ex-Delhi)
 🏨 1N Hanoi + ⛴️ 1N Halong Bay Cruise
@@ -142,7 +142,7 @@ export default function PlanningSection() {
           cities="HANOI - HALONG - DANANG - Phu Quoc"
           duration="07 Nights / 08 Days"
           price="₹ 108,999/- Per Person"
-          validity="30 SEPT 2025"
+          
           Inclusion="✈️ Flights , 🚖 Transfers, 🏨 Hotels, 🍽️ Meals, 📸 Sightseeing"
           More={`✈️ Return Economy Class Airfare (Ex-Delhi)
 🏨 1N Hanoi + ⛴️ 1N Halong Bay Cruise

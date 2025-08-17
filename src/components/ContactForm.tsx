@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
-import DatePicker from "react-datepicker";
+import {  useTransition } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { sendEmail } from "../../actions/email";
 import { toast } from "react-toastify";
