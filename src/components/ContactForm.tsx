@@ -85,35 +85,8 @@ export default function ItineraryForm() {
           />
         </div>
 
-        {/* <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">Travel Dates</label>
-          <DatePicker
-            selectsRange
-            startDate={startDate}
-            endDate={endDate}
-            onChange={(update) => setDateRange(update as [Date | null, Date | null])}
-            className="input-style w-full"
-            isClearable
-          /> */}
-          <DatePicker
-      selected={selectedDate}
-      onChange={(date) => setSelectedDate(date)}
-      className="input-style w-full"
-      isClearable
-      placeholderText="Select a date"
-    />
-        </div>
 
-        <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">Number of People</label>
-          <input
-            type="number"
-            min="1"
-            value={numPeople}
-            onChange={(e) => setNumPeople(Number(e.target.value))}
-            className="input-style"
-          />
-        </div> */}
+     
 
         <button
           type="submit"
