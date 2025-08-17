@@ -94,7 +94,14 @@ export default function ItineraryForm() {
             onChange={(update) => setDateRange(update as [Date | null, Date | null])}
             className="input-style w-full"
             isClearable
-          />
+          /> */}
+          <DatePicker
+      selected={selectedDate}
+      onChange={(date) => setSelectedDate(date)}
+      className="input-style w-full"
+      isClearable
+      placeholderText="Select a date"
+    />
         </div>
 
         <div className="space-y-2">

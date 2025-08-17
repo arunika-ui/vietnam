@@ -18,58 +18,89 @@ export default function PlanningSection() {
 
       {/* Cards */}
       <div className="my-8 grid w-full grid-cols-1 gap-6 px-2 sm:px-4 md:grid-cols-2 lg:grid-cols-3 lg:px-10">
-        <VietnamCard
-        key="Vietnam Experience"
-          Heading="Vietnam Experience"
-          ImageSrc="/itenary3.jpg"
-          cities="HANOI - HALONG - DANANG - Phu Quoc"
-          duration="07 Nights / 08 Days"
-          price="₹ 108,999/- Per Person"
-          validity="30 SEPT 2025"
-          Inclusion="✈️ Flights , 🚖 Transfers, 🏨 Hotels, 🍽️ Meals, 📸 Sightseeing"
-          More={`✈️ Return Economy Class Airfare (Ex-Delhi)
-      🏨 1N Hanoi + ⛴️ 1N Halong Bay Cruise
-      🏖️ 3N Da Nang + 🌴 2N Phu Quoc
-      🍽️ Daily Breakfast in Hotel + 🍱 All Meals on Cruise
-      🚘 Airport Transfers Included
-      🚌 Sightseeing by Sharing Coach
-      ✅ Tourist Visa Fee Included
-      🗣️ Local English-speaking Guide
-      *T&C Apply`}
-        />
 
+        {/* New Package 1 */}
 <VietnamCard
-  key="Untouched Vietnam"
-  Heading="Untouched Vietnam"
-  ImageSrc="/itenary2.jpg"
-  cities="Hanoi, Halong Bay Cruise, Danang & Ho Chi Minh"
-  duration="08 Days / 07 Nights"
-  price="₹96,999 PP"
-  validity="30 SEPT 2025"
-  Inclusion="✈️ Flights, 🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
-  More={`✈️ Return Economy Class Airfare (Ex-Delhi)
-🏨 1N Hanoi + ⛴️ 1N Halong Bay Cruise
-🏖️ 3N Da Nang + 🌆 2N Ho Chi Minh City
-🍽️ Daily Breakfast in Hotel + 🍱 All Meals on Cruise
-🚘 Airport Transfers Included
-🚌 Sightseeing by Sharing Coach
-✅ Tourist Visa Fee Included
-🗣️ Local English-speaking Guide
+          key="Vietnam Essentials"
+          Heading="Vietnam Essentials"
+          ImageSrc="/19vietnam3.jpg"
+          cities="HANOI - HALONG - DANANG"
+          duration="06 Days"
+          price="₹51,999/- Per Person"
+          validity="30 SEPT 2025"
+          Inclusion="🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
+          More={`🏨 01 Nights Stay in Hanoi
+⛴️ 01 Nights Stay in Cruise at Halong Bay
+🏨 03 Nights Stay in DaNang
+🍽️ Daily Breakfast in Hotel
+🍱🥗 All meals included in Cruise
+🚘 Airport Transfers
+🚌 Sightseeing by sharing coach
+✅ Tourist Visa fee 
+🗣️ Local English speaking guide
 *Minimum 2 Persons Required
 *T&C Apply`}
-/>
+        />
 
+        {/* New Package 2 */}
+        <VietnamCard
+          key="Affordable Vietnam Discovery"
+          Heading="Affordable Vietnam Discovery"
+          ImageSrc="/19vietnam2.webp"
+          cities="HANOI - HALONG - DANANG - HO CHI MINH"
+          duration="08 Days"
+          price="₹55,999/- Per Person"
+          validity="30 SEPT 2025"
+          Inclusion="🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
+          More={`🏨 01 Nights Stay in Hanoi
+⛴️ 01 Nights Stay in Cruise at Halong Bay
+🏨 03 Nights Stay in DaNang
+🏨 02 Nights Stay in Ho Chi Minh
+🍽️ Daily Breakfast in Hotel
+🍱🥗 All meals included in Cruise
+🚘 Airport Transfers
+🚌 Sightseeing by sharing coach
+✅ Tourist Visa fee 
+🗣️ Local English-speaking guide
+*Minimum 2 Persons Required
+*T&C Apply`}
+        />
 
+        {/* New Package 3 */}
 <VietnamCard
-  key="Essence of Vietnam"
-  Heading="Essence of Vietnam"
-  ImageSrc="/iternary1.jpg"
-  cities="Hanoi, Halong Bay Cruise & Da Nang"
-  duration="06 Days / 05 Nights"
-  price="₹84,999 PP"
-  validity="30 SEPT 2025"
-  Inclusion="✈️ Flights, 🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
-  More={`✈️ Return Economy Class Airfare (Ex-Delhi)
+          key="Budget Vietnam Experience"
+          Heading="Budget Vietnam Experience"
+          ImageSrc="/19vietnam1.webp"
+          cities="HANOI - HALONG - DANANG - Phu Quoc"
+          duration="08 Days"
+          price="₹66,999/- Per Person"
+          validity="30 SEPT 2025"
+          Inclusion="🚖 Transfers, 🏨 Hotels, 🍽️ Meals, 📸 Sightseeing"
+          More={`🏨 01 Nights Stay in Hanoi
+⛴️ 01 Nights Stay in Cruise at Halong Bay
+🏨 03 Nights Stay in DaNang
+🏨 02 Nights Stay in Phu Quoc
+🍽️ Daily Breakfast in Hotel
+🍱🥗 All meals included in Cruise
+🚘 Airport Transfers
+🚌 Sightseeing by sharing coach
+✅ Tourist Visa fee 
+🗣️ Local English-speaking guide
+*Minimum 2 Persons Required
+*T&C Apply`}
+        />
+
+{/* New Package 4 */}
+        <VietnamCard
+          key="Essence of Vietnam"
+          Heading="Essence of Vietnam"
+          ImageSrc="/iternary1.jpg"
+          cities="Hanoi, Halong Bay Cruise & Da Nang"
+          duration="06 Days / 05 Nights"
+          price="₹84,999 PP"
+          validity="30 SEPT 2025"
+          Inclusion="✈️ Flights, 🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
+          More={`✈️ Return Economy Class Airfare (Ex-Delhi)
 🏨 1N Hanoi + ⛴️ 1N Halong Bay Cruise
 🏖️ 3N Da Nang (Twin/Double Sharing)
 🍽️ Daily Breakfast in Hotel + 🍱 All Meals on Cruise
@@ -79,8 +110,57 @@ export default function PlanningSection() {
 🗣️ Local English-speaking Guide
 *Minimum 2 Persons Required
 *T&C Apply`}
-/>
+        />
 
+{/* New Package 5 */}
+<VietnamCard
+          key="Untouched Vietnam"
+          Heading="Untouched Vietnam"
+          ImageSrc="/itenary2.jpg"
+          cities="Hanoi, Halong Bay Cruise, Danang & Ho Chi Minh"
+          duration="08 Days / 07 Nights"
+          price="₹96,999 PP"
+          validity="30 SEPT 2025"
+          Inclusion="✈️ Flights, 🏨 Hotels, ⛴️ Cruise, 🍽️ Meals, 🚌 Sightseeing"
+          More={`✈️ Return Economy Class Airfare (Ex-Delhi)
+🏨 1N Hanoi + ⛴️ 1N Halong Bay Cruise
+🏖️ 3N Da Nang + 🌆 2N Ho Chi Minh City
+🍽️ Daily Breakfast in Hotel + 🍱 All Meals on Cruise
+🚘 Airport Transfers Included
+🚌 Sightseeing by Sharing Coach
+✅ Tourist Visa Fee Included
+🗣️ Local English-speaking Guide
+*Minimum 2 Persons Required
+*T&C Apply`}
+        />
+
+{/* New Package 6 */}
+        <VietnamCard
+          key="Vietnam Experience"
+          Heading="Vietnam Experience"
+          ImageSrc="/itenary3.jpg"
+          cities="HANOI - HALONG - DANANG - Phu Quoc"
+          duration="07 Nights / 08 Days"
+          price="₹ 108,999/- Per Person"
+          validity="30 SEPT 2025"
+          Inclusion="✈️ Flights , 🚖 Transfers, 🏨 Hotels, 🍽️ Meals, 📸 Sightseeing"
+          More={`✈️ Return Economy Class Airfare (Ex-Delhi)
+🏨 1N Hanoi + ⛴️ 1N Halong Bay Cruise
+🏖️ 3N Da Nang + 🌴 2N Phu Quoc
+🍽️ Daily Breakfast in Hotel + 🍱 All Meals on Cruise
+🚘 Airport Transfers Included
+🚌 Sightseeing by Sharing Coach
+✅ Tourist Visa Fee Included
+🗣️ Local English-speaking Guide
+*T&C Apply`}
+        />
+
+        {/* Existing Cards */}
+        
+
+        
+
+        
       </div>
 
       {/* CTA Button */}
