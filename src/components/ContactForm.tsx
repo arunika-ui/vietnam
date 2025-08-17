@@ -8,9 +8,9 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
 export default function ItineraryForm() {
-  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
-  const [startDate, endDate] = dateRange;
-  const [numPeople, setNumPeople] = useState(1);
+  // const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+  // const [startDate, endDate] = dateRange;
+  // const [numPeople, setNumPeople] = useState(1);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
@@ -22,16 +22,13 @@ export default function ItineraryForm() {
     const phone = (form.get("phone") as string) || "";
     const name = (form.get("name") as string) || "";
 
-    const interestLevel = localStorage.getItem("userInterest") || "Low";
+    // const interestLevel = localStorage.getItem("userInterest") || "Low";
 
     const message = `
       <h2>New Vietnam Trip Inquiry</h2>
       <p><strong>Name:</strong> ${name}<br/>
       <strong>Email:</strong> ${senderEmail}<br/>
       <strong>Phone:</strong> ${phone}</p>
-      <p><strong>Travel Dates:</strong> ${startDate?.toDateString()} to ${endDate?.toDateString()}<br/>
-      <strong>People:</strong> ${numPeople}<br/>
-      <strong>Interest:</strong> ${interestLevel}</p>
     `;
 
     startTransition(() => {
@@ -88,7 +85,7 @@ export default function ItineraryForm() {
           />
         </div>
 
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700">Travel Dates</label>
           <DatePicker
             selectsRange
@@ -109,7 +106,7 @@ export default function ItineraryForm() {
             onChange={(e) => setNumPeople(Number(e.target.value))}
             className="input-style"
           />
-        </div>
+        </div> */}
 
         <button
           type="submit"
