@@ -46,7 +46,7 @@ export default function Home() {
       <section className="relative w-full aspect-video md:aspect-auto md:h-[90vh] bg-black overflow-hidden">
   <video
     className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover"
-    src="/videos/Untitled%20design.mp4"
+    src="/vietnam/videos/Untitled%20design.mp4"
     autoPlay
     loop
     muted
